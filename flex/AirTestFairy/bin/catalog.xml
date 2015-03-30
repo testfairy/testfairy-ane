@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<swc xmlns="http://www.adobe.com/flash/swccatalog/9">
+  <versions>
+    <swc version="1.2" />
+    <flex version="4.6.0" build="23201" minimumSupportedVersion="3.0.0" />
+  </versions>
+  <features>
+    <feature-script-deps />
+    <feature-files />
+  </features>
+  <libraries>
+    <library path="library.swf">
+      <script name="_42b4624d8703ec1c314181051168242e42df6218c10a7ce06bd3240e73f18196_flash_display_Sprite" mod="1427386554734" signatureChecksum="1028159319" >
+        <def id="_42b4624d8703ec1c314181051168242e42df6218c10a7ce06bd3240e73f18196_flash_display_Sprite" /> 
+        <dep id="flash.system:Security" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+      </script>
+      <script name="com/TestFairy/AirTestFairy/AirTestFairy" mod="1427386545000" signatureChecksum="1990038225" >
+        <def id="com.TestFairy.AirTestFairy:AirTestFairy" /> 
+        <dep id="trace" type="e" /> 
+        <dep id="flash.system:Capabilities" type="e" /> 
+        <dep id="flash.external:ExtensionContext" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="flash.external:ExtensionContext" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <digests>
+        <digest type="SHA-256" signed="false" value="797dec6186a711c02a0fdd81ead71e8745b83db3ee061638f81759574301e59a"   />
+      </digests>
+    </library>
+  </libraries>
+  <files>
+  </files>
+</swc>
