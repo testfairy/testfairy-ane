@@ -6,7 +6,7 @@ all: build/AirTestFairy.ane
 bin/bin/adt:
 	rm -rf bin
 	mkdir bin
-	wget -P bin http://airdownload.adobe.com/air/mac/download/latest/AIRSDK_Compiler.tbz2
+	wget -P bin http://airdownload.adobe.com/air/mac/download/17.0/AIRSDK_Compiler.tbz2
 	tar xf bin/AIRSDK_Compiler.tbz2 -C ./bin
 
 ios/AirTestFairy/AirTestFairy/libTestFairy.a:
