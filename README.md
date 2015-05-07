@@ -24,7 +24,7 @@ Add AirTestFairy.ane to your project inorder to enable TestFairy
 
   ![Copy plugins](https://github.com/adamkan/ane/blob/master/key.png)
   
-* Import com.testfairy.AirTestFairy class and add AirTestFairy.begin();
+* Import com.testfairy.AirTestFairy class and add AirTestFairy.begin() to your `onApplicationComplete` method.
 
 ```
   import com.testfairy.AirTestFairy;
