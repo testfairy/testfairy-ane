@@ -1,8 +1,8 @@
 # TestFairy for ANE
 
-Add AirTestFairy.ane to your project inorder to enable TestFairy
+Add AirTestFairy.ane to your project in order to enable TestFairy
 
-* Download and unzip the repository
+* ![Download](https://app.testfairy.com/sdk/TestFairySDK-1.4.4.ane) and unzip the repository
 * Go to your project properties
 
   ![Copy plugins](https://github.com/adamkan/ane/blob/master/properties.png)
@@ -20,7 +20,7 @@ Add AirTestFairy.ane to your project inorder to enable TestFairy
   
   ![Copy plugins](https://github.com/adamkan/ane/blob/master/package.png)
   
-* In your projects PROJECT-NAME-app.xml add you APIKey as a value for "TestFairyAPIKey" key
+* In your projects PROJECT-NAME-app.xml add your *APP Token* as a value for "TestFairyAPIKey" key
 
   ![Copy plugins](https://github.com/adamkan/ane/blob/master/key.png)
   
