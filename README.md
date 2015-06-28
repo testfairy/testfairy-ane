@@ -2,7 +2,7 @@
 
 Add AirTestFairy.ane to your project in order to enable TestFairy
 
-* [Download](https://app.testfairy.com/sdk/TestFairySDK-1.4.4.ane) and unzip the repository
+* [Download](https://app.testfairy.com/ios-sdk/TestFairySDK-1.4.4.ane) and unzip the repository
 * Go to your project properties
 
   ![Copy plugins](https://github.com/adamkan/ane/blob/master/properties.png)
