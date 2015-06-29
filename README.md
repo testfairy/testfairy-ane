@@ -19,6 +19,6 @@ If you are developing using Adobe Flex, add an import and a call to your `onAppl
   AirTestFairy.begin(APP_TOKEN);
 ```
 
-Replace ***APP_TOKEN*** with your value, taken from [User Preferences](https://app.testfairy.com/settings/) page.
+Replace ***APP_TOKEN*** with your app token value taken from the [User Preferences](https://app.testfairy.com/settings/) page.
 
 ### You are ready to build and run your project
