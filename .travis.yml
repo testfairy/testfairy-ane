@@ -1,0 +1,8 @@
+language: objective-c
+
+matrix:
+  fast_finish: true
+  
+script:
+ - make
+ 
