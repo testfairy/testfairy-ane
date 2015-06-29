@@ -1,35 +1,25 @@
-# TestFairy for ANE
+# TestFairy SDK ANE
+[![Build Status](https://travis-ci.org/testfairy/testfairy-ane.svg)](https://travis-ci.org/testfairy/testfairy-ane)
 
-Add AirTestFairy.ane to your project in order to enable TestFairy
+## Installation
 
-* [Download](https://app.testfairy.com/ios-sdk/TestFairySDK-1.4.4.ane) and unzip the repository
-* Go to your project properties
+Please follow the next steps to include the TestFairy SDK ANE in your AIR project:
 
-  ![Go to project properties](docs/imgs/properties.png)
-  
-* Choose "Flex Build Path" from the properties and choose "Native Extensions" tab
+1. [Download latest version](https://app.testfairy.com/ios-sdk/TestFairySDK-1.4.4.ane) to your computer.
+2. Open your project properies, click on `Project` menu, and select **Properties**.
+3. Select `Flex Build Path` or `ActionScript Build Path` from left sidebar, click on **Native Extensions**.
+4. Click **Add ANE**, type in the path to the ANE you just downloaded.
+5. Select `Flex Build Packaging` or `ActionScript Build Packaging**, select `Apple iOS`. Now select the **Native Extensions** tab.
+6. Make sure the **Package** checkbox is checked.
 
-  ![Choose Flex Build Path](docs/imgs/build_path.png)
-  
-* Press "Add ANE" on the left and add path to AirTestFairy.ane
-
-  ![Add ANE](docs/imgs/ane.png)
-  
-* Go to "Flex Build Packaging" from the properties, choose "Apple iOS" and then "Native Extensions" tab. 
-  Make sure the Package is selected
-  
-  ![](docs/imgs/package.png)
-  
-* In your projects PROJECT-NAME-app.xml add your *APP Token* as a value for "TestFairyAPIKey" key
-
-  ![Update key](docs/imgs/key.png)
-  
-* Import com.testfairy.AirTestFairy class and add AirTestFairy.begin() to your `onApplicationComplete` method.
+If you are developing using Adobe Flex, add an import and a call to your `onApplicationComplete` method. For AS3 projects, add the code to your main function.
 
 ```
   import com.testfairy.AirTestFairy;
 
-  AirTestFairy.begin();
+  AirTestFairy.begin(APP_TOKEN);
 ```
+
+Replace ***APP_TOKEN*** with your app token value taken from the [User Preferences](https://app.testfairy.com/settings/) page.
 
 ### You are ready to build and run your project

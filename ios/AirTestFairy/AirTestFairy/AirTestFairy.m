@@ -1,10 +1,3 @@
-//
-//  AirTestFairy.m
-//  AirTestFairy
-//
-//  Created by poccaDot on 3/24/15.
-//  Copyright (c) 2015 TestFairy. All rights reserved.
-//
 
 #import "AirTestFairy.h"
 #import "TestFairy.h"
@@ -13,8 +6,8 @@ static FREContext context;
 
 DEFINE_ANE_FUNCTION(AirTestFairyBegin)
 {
-	NSString *apiKey = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"TestFairyAPIKey"];
-	[TestFairy begin:apiKey];
+	NSString *appToken = FPANE_FREObjectToNSString(argv[0]);
+	[TestFairy begin:appToken];
 	return nil;
 }
 
@@ -57,25 +50,30 @@ DEFINE_ANE_FUNCTION(AirTestFairyTakeScreenshot)
 DEFINE_ANE_FUNCTION(AirTestFairyLog)
 {
 	NSString *logText = FPANE_FREObjectToNSString(argv[0]);
-	TFLog(@"%@",logText);
+	TFLog(@"%@", logText);
 	return nil;
+}
+
+DEFINE_ANE_FUNCTION(AirTestFairyGetVersion)
+{
+	return FPANE_NSStringToFREOBject([TestFairy version]);
 }
 
 #pragma mark - ANE Setup
 
-void AirTestFairyContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx,
-									  uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
+void AirTestFairyContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
 {
 	NSDictionary *functions = @{
-        @"begin":					[NSValue valueWithPointer:&AirTestFairyBegin],
-		@"pause":					[NSValue valueWithPointer:&AirTestFairyPause],
-		@"resume":					[NSValue valueWithPointer:&AirTestFairyResume],
-		@"takeScreenshot":			[NSValue valueWithPointer:&AirTestFairyTakeScreenshot],
-		@"pushFeedbackController":  [NSValue valueWithPointer:&AirTestFairyPushFeedbackController],
-		@"setCorrelationId":		[NSValue valueWithPointer:&AirTestFairySetCorrelationId],
-		@"getSessionUrl":			[NSValue valueWithPointer:&AirTestFairyGetSessionUrl],
-		@"log":						[NSValue valueWithPointer:&AirTestFairyLog],
-		};
+        	@"begin": [NSValue valueWithPointer:&AirTestFairyBegin],
+		@"pause": [NSValue valueWithPointer:&AirTestFairyPause],
+		@"resume": [NSValue valueWithPointer:&AirTestFairyResume],
+		@"takeScreenshot": [NSValue valueWithPointer:&AirTestFairyTakeScreenshot],
+		@"pushFeedbackController": [NSValue valueWithPointer:&AirTestFairyPushFeedbackController],
+		@"setCorrelationId": [NSValue valueWithPointer:&AirTestFairySetCorrelationId],
+		@"getSessionUrl": [NSValue valueWithPointer:&AirTestFairyGetSessionUrl],
+		@"log": [NSValue valueWithPointer:&AirTestFairyLog],
+		@"getVersion": [NSValue valueWithPointer:&AirTestFairyGetVersion],
+	};
 	
 	*numFunctionsToTest = (uint32_t)[functions count];
 	
