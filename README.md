@@ -1,4 +1,4 @@
-# TestFairy for ANE
+# TestFairy SDK ANE
 
 ## Installation
 
