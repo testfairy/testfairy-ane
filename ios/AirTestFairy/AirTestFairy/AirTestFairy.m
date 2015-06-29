@@ -1,10 +1,3 @@
-//
-//  AirTestFairy.m
-//  AirTestFairy
-//
-//  Created by poccaDot on 3/24/15.
-//  Copyright (c) 2015 TestFairy. All rights reserved.
-//
 
 #import "AirTestFairy.h"
 #import "TestFairy.h"
@@ -13,8 +6,8 @@ static FREContext context;
 
 DEFINE_ANE_FUNCTION(AirTestFairyBegin)
 {
-	NSString *apiKey = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"TestFairyAPIKey"];
-	[TestFairy begin:apiKey];
+	NSString *appToken = FPANE_FREObjectToNSString(argv[0]);
+	[TestFairy begin:appToken];
 	return nil;
 }
 
@@ -57,7 +50,7 @@ DEFINE_ANE_FUNCTION(AirTestFairyTakeScreenshot)
 DEFINE_ANE_FUNCTION(AirTestFairyLog)
 {
 	NSString *logText = FPANE_FREObjectToNSString(argv[0]);
-	TFLog(@"%@",logText);
+	TFLog(@"%@", logText);
 	return nil;
 }
 
