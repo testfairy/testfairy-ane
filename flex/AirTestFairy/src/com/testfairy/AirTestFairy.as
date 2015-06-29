@@ -12,7 +12,7 @@ package com.testfairy
 		
 		public static function begin(appToken:String):void
 		{
-			if (value) {
+			if (appToken) {
 				call("begin", appToken);
 			}
 		}
