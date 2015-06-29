@@ -11,7 +11,7 @@ Please follow the next steps to include the TestFairy SDK ANE in your AIR projec
 5. Select `Flex Build Packaging` or `ActionScript Build Packaging**, select `Apple iOS`. Now select the **Native Extensions** tab.
 6. Make sure the **Package** checkbox is checked.
 
-If you are developing using Adobe Flex, add an import and a call to your `onApplicationComplete` method:
+If you are developing using Adobe Flex, add an import and a call to your `onApplicationComplete` method. For AS3 projects, add the code to your main function.
 
 ```
   import com.testfairy.AirTestFairy;
