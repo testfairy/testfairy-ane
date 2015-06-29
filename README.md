@@ -1,4 +1,5 @@
 # TestFairy SDK ANE
+[![Build Status](https://travis-ci.org/testfairy/testfairy-ane.svg)](https://travis-ci.org/testfairy/testfairy-ane)
 
 ## Installation
 
