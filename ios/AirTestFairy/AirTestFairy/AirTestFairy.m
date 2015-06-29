@@ -17,6 +17,13 @@ DEFINE_ANE_FUNCTION(AirTestFairyPushFeedbackController)
 	return nil;
 }
 
+DEFINE_ANE_FUNCTION(AirTestFairySendUserFeedback)
+{
+	NSString *feedback = FPANE_FREObjectToNSString(argv[0]);
+	[TestFairy sendUserFeedback:feedback];
+	return nil;
+}
+
 DEFINE_ANE_FUNCTION(AirTestFairySetCorrelationId)
 {
 	NSString *correlationId = FPANE_FREObjectToNSString(argv[0]);
@@ -72,6 +79,7 @@ void AirTestFairyContextInitializer(void* extData, const uint8_t* ctxType, FRECo
 		@"setCorrelationId": [NSValue valueWithPointer:&AirTestFairySetCorrelationId],
 		@"getSessionUrl": [NSValue valueWithPointer:&AirTestFairyGetSessionUrl],
 		@"log": [NSValue valueWithPointer:&AirTestFairyLog],
+		@"sendUserFeedback": [NSValue valueWithPointer:&AirTestFairySendUserFeedback],
 		@"getVersion": [NSValue valueWithPointer:&AirTestFairyGetVersion],
 	};
 	
