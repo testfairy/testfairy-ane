@@ -54,21 +54,26 @@ DEFINE_ANE_FUNCTION(AirTestFairyLog)
 	return nil;
 }
 
+DEFINE_ANE_FUNCTION(AirTestFairyGetVersion)
+{
+	return FPANE_NSStringToFREOBject([TestFairy version]);
+}
+
 #pragma mark - ANE Setup
 
-void AirTestFairyContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx,
-									  uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
+void AirTestFairyContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
 {
 	NSDictionary *functions = @{
-        @"begin":					[NSValue valueWithPointer:&AirTestFairyBegin],
-		@"pause":					[NSValue valueWithPointer:&AirTestFairyPause],
-		@"resume":					[NSValue valueWithPointer:&AirTestFairyResume],
-		@"takeScreenshot":			[NSValue valueWithPointer:&AirTestFairyTakeScreenshot],
-		@"pushFeedbackController":  [NSValue valueWithPointer:&AirTestFairyPushFeedbackController],
-		@"setCorrelationId":		[NSValue valueWithPointer:&AirTestFairySetCorrelationId],
-		@"getSessionUrl":			[NSValue valueWithPointer:&AirTestFairyGetSessionUrl],
-		@"log":						[NSValue valueWithPointer:&AirTestFairyLog],
-		};
+        	@"begin": [NSValue valueWithPointer:&AirTestFairyBegin],
+		@"pause": [NSValue valueWithPointer:&AirTestFairyPause],
+		@"resume": [NSValue valueWithPointer:&AirTestFairyResume],
+		@"takeScreenshot": [NSValue valueWithPointer:&AirTestFairyTakeScreenshot],
+		@"pushFeedbackController": [NSValue valueWithPointer:&AirTestFairyPushFeedbackController],
+		@"setCorrelationId": [NSValue valueWithPointer:&AirTestFairySetCorrelationId],
+		@"getSessionUrl": [NSValue valueWithPointer:&AirTestFairyGetSessionUrl],
+		@"log": [NSValue valueWithPointer:&AirTestFairyLog],
+		@"getVersion": [NSValue valueWithPointer:&AirTestFairyGetVersion],
+	};
 	
 	*numFunctionsToTest = (uint32_t)[functions count];
 	
