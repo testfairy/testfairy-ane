@@ -3,11 +3,12 @@ CONFIGURATION=Release
 
 all: build/AirTestFairy.ane
 
-bin/bin/adt:
-	rm -rf bin
-	mkdir bin
-	wget -P bin http://airdownload.adobe.com/air/mac/download/17.0/AIRSDK_Compiler.tbz2
-	tar xf bin/AIRSDK_Compiler.tbz2 -C ./bin
+airsdk/bin/adt:
+	rm -rf airsdk
+	mkdir airsdk
+	wget -P airsdk http://airdownload.adobe.com/air/mac/download/17.0/AIRSDK_Compiler.tbz2
+	tar xf airsdk/AIRSDK_Compiler.tbz2 -C airsdk
+	rm airsdk/AIRSDK_Compiler.tbz2
 
 ios/AirTestFairy/AirTestFairy/libTestFairy.a:
 	curl -L -s -o ./ios/AirTestFairy/AirTestFairy/sdk.zip "http://app.testfairy.com/ios-sdk/TestFairySDK-${VERSION}.zip"
@@ -23,9 +24,9 @@ build/ios/libAirTestFairy.a: ios/AirTestFairy/AirTestFairy/libTestFairy.a
 	cp -f ios/build/$(CONFIGURATION)-universal/libAirTestFairy.a build/ios/libAirTestFairy.a
 
 build/AirTestFairy.swc: build/ios/libAirTestFairy.a
-	bin/bin/compc -source-path flex/AirTestFairy/src -output build/AirTestFairy.swc -swf-version=14 -external-library-path+=bin/frameworks/libs/air/airglobal.swc -include-classes com.testfairy.AirTestFairy
+	airsdk/bin/compc -source-path flex/AirTestFairy/src -output build/AirTestFairy.swc -swf-version=14 -external-library-path+=airsdk/frameworks/libs/air/airglobal.swc -include-classes com.testfairy.AirTestFairy
 
-build/AirTestFairy.ane: bin/bin/adt build/AirTestFairy.swc
+build/AirTestFairy.ane: airsdk/bin/adt build/AirTestFairy.swc
 	mkdir -p build/ios
 	mkdir -p build/default
 	unzip -o -d build build/AirTestFairy.swc library.swf
@@ -33,7 +34,10 @@ build/AirTestFairy.ane: bin/bin/adt build/AirTestFairy.swc
 	cp -f build/library.swf build/default/library.swf
 	cp -f flex/AirTestFairy/src/com/testfairy/extension.xml build/extension.xml
 	cp -f flex/AirTestFairy/src/com/testfairy/platformoptions.xml build/platformoptions.xml
-	bin/bin/adt -package -target ane build/AirTestFairy.ane build/extension.xml -swc build/AirTestFairy.swc -platform iPhone-ARM -C build/ios . -platformoptions build/platformoptions.xml -platform default -C build/default .
+	airsdk/bin/adt -package -target ane build/AirTestFairy.ane build/extension.xml -swc build/AirTestFairy.swc -platform iPhone-ARM -C build/ios . -platformoptions build/platformoptions.xml -platform default -C build/default .
 
 clean:
-	-rm -rf build
+	-rm -rf build 
+	-rm ios/AirTestFairy/AirTestFairy/TestFairy.h
+	-rm ios/AirTestFairy/AirTestFairy/libTestFairy.a
+	-rm -rf airsdk
