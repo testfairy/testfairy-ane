@@ -9,6 +9,12 @@
                 <finalizer>AirTestFairyFinalizer</finalizer>
             </applicationDeployment>
         </platform>
+        <platform name="Android-ARM">
+            <applicationDeployment>
+                <nativeLibrary>libAirTestFairy.jar</nativeLibrary>
+                <initializer>com.testfairy.AirTestFairy</initializer>
+            </applicationDeployment>
+        </platform>
         <platform name="default">
             <applicationDeployment/>
         </platform>   

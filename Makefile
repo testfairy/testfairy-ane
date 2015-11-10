@@ -23,18 +23,25 @@ build/ios/libAirTestFairy.a: ios/AirTestFairy/AirTestFairy/libTestFairy.a
 	mkdir -p build/ios
 	cp -f ios/build/$(CONFIGURATION)-universal/libAirTestFairy.a build/ios/libAirTestFairy.a
 
-build/AirTestFairy.swc: build/ios/libAirTestFairy.a
+build/android/libAirTestFairy.jar: 
+	ant jar -file android/build.xml
+	mkdir -p build/android
+	cp -f android/bin/libAirTestFairy.jar build/android/libAirTestFairy.jar
+
+build/AirTestFairy.swc: build/ios/libAirTestFairy.a build/android/libAirTestFairy.jar
 	airsdk/bin/compc -source-path flex/AirTestFairy/src -output build/AirTestFairy.swc -swf-version=14 -external-library-path+=airsdk/frameworks/libs/air/airglobal.swc -include-classes com.testfairy.AirTestFairy
 
 build/AirTestFairy.ane: airsdk/bin/adt build/AirTestFairy.swc
 	mkdir -p build/ios
+	mkdir -p build/android
 	mkdir -p build/default
 	unzip -o -d build build/AirTestFairy.swc library.swf
 	cp -f build/library.swf build/ios/library.swf
+	cp -f build/library.swf build/android/library.swf
 	cp -f build/library.swf build/default/library.swf
 	cp -f flex/AirTestFairy/src/com/testfairy/extension.xml build/extension.xml
 	cp -f flex/AirTestFairy/src/com/testfairy/platformoptions.xml build/platformoptions.xml
-	airsdk/bin/adt -package -target ane build/AirTestFairy.ane build/extension.xml -swc build/AirTestFairy.swc -platform iPhone-ARM -C build/ios . -platformoptions build/platformoptions.xml -platform default -C build/default .
+	airsdk/bin/adt -package -target ane build/AirTestFairy.ane build/extension.xml -swc build/AirTestFairy.swc -platform iPhone-ARM -C build/ios . -platformoptions build/platformoptions.xml -platform Android-ARM -C android . -platform default -C build/default .
 
 clean:
 	-rm -rf build 

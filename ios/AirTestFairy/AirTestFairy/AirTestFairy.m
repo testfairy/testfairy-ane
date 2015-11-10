@@ -71,7 +71,7 @@ DEFINE_ANE_FUNCTION(AirTestFairyGetVersion)
 void AirTestFairyContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
 {
 	NSDictionary *functions = @{
-        	@"begin": [NSValue valueWithPointer:&AirTestFairyBegin],
+		@"begin": [NSValue valueWithPointer:&AirTestFairyBegin],
 		@"pause": [NSValue valueWithPointer:&AirTestFairyPause],
 		@"resume": [NSValue valueWithPointer:&AirTestFairyResume],
 		@"takeScreenshot": [NSValue valueWithPointer:&AirTestFairyTakeScreenshot],
