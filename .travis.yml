@@ -6,6 +6,7 @@ matrix:
 before_install:
  - brew install ant
  - brew install android-sdk
+ - android update project -p android/.
  
 script:
  - make
