@@ -4,7 +4,7 @@ matrix:
   fast_finish: true
   
 install:
- - npm install ant
+ - ant deps
  
 script:
  - make
