@@ -2,9 +2,9 @@ language: objective-c
 
 matrix:
   fast_finish: true
-  
-install:
- - ant deps
+
+before_install:
+ - brew install ant
  
 script:
  - make
