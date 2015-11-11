@@ -8,7 +8,7 @@ before_install:
  - brew install android-sdk
  
 before_script:
- - echo y | android update sdk --no-ui --filter tools,platform-tools,build-tools-23.0.1,android-23
+ - echo y | android update sdk --no-ui --filter tools,platform-tools,platform-tools-preview,build-tools-23.0.1,android-23
  - android update project -t android-23 -p android/.
 
 script:
