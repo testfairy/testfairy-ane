@@ -8,7 +8,7 @@ before_install:
  - brew install android-sdk
  
 before_script:
- - android update project -p android/.
+ - android update project -p android/. -t 7
  - echo $ANDROID_HOME 
  - cat android/local.properties
 
