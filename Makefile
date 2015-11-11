@@ -41,7 +41,7 @@ build/AirTestFairy.ane: airsdk/bin/adt build/AirTestFairy.swc
 	cp -f build/library.swf build/default/library.swf
 	cp -f flex/AirTestFairy/src/com/testfairy/extension.xml build/extension.xml
 	cp -f flex/AirTestFairy/src/com/testfairy/platformoptions.xml build/platformoptions.xml
-	airsdk/bin/adt -package -target ane build/AirTestFairy.ane build/extension.xml -swc build/AirTestFairy.swc -platform iPhone-ARM -C build/ios . -platformoptions build/platformoptions.xml -platform Android-ARM -C android . -platform default -C build/default .
+	airsdk/bin/adt -package -target ane build/AirTestFairy.ane build/extension.xml -swc build/AirTestFairy.swc -platform iPhone-ARM -C build/ios . -platformoptions build/platformoptions.xml -platform Android-ARM -C build/android . -platform default -C build/default .
 
 clean:
 	-rm -rf build 
