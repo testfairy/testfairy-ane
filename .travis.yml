@@ -2,11 +2,17 @@ language: objective-c
 
 matrix:
   fast_finish: true
+  
+android:
+  components:
+    - platform-tools
+    - tools
+    - build-tools-19.1.0
+    - android-19
 
 before_install:
  - brew install ant
- - brew install android-sdk
- 
+
 before_script:
  - echo y | android update sdk --no-ui --filter tools,platform-tools,platform-tools-preview,build-tools-23.0.1,android-23
  - android update project -t android-23 -p android/.
