@@ -3,18 +3,12 @@ language: objective-c
 matrix:
   fast_finish: true
   
-android:
-  components:
-    - platform-tools
-    - tools
-    - build-tools-19.1.0
-    - android-19
-
 before_install:
  - brew install ant
+ - brew install android-sdk
 
 before_script:
- - echo y | android update sdk --no-ui --filter tools,platform-tools,platform-tools-preview,build-tools-23.0.1,android-23
+ - ( sleep 1 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk --all --no-ui --filter platform-tool,android-19,sysimg-19,build-tools-19.0.1,extra-android-support,sys-img-armeabi-v7a-android-19
  - android update project -t android-23 -p android/.
 
 script:
