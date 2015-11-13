@@ -29,7 +29,7 @@ build/android/libAirTestFairy.jar:
 	cp -f android/bin/libAirTestFairy.jar build/android/libAirTestFairy.jar
 
 build/AirTestFairy.swc: build/ios/libAirTestFairy.a build/android/libAirTestFairy.jar
-	airsdk/bin/compc -source-path flex/AirTestFairy/src -output build/AirTestFairy.swc -swf-version=14 -external-library-path+=airsdk/frameworks/libs/air/airglobal.swc -include-classes com.testfairy.AirTestFairy
+	airsdk/bin/compc -source-path flex/AirTestFairy/src -output build/AirTestFairy.swc -target-player=17.0 -swf-version=14 -external-library-path+=airsdk/frameworks/libs/air/airglobal.swc -include-classes com.testfairy.AirTestFairy
 
 build/AirTestFairy.ane: airsdk/bin/adt build/AirTestFairy.swc
 	mkdir -p build/ios
