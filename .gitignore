@@ -5,3 +5,4 @@ ios/AirTestFairy/AirTestFairy/libTestFairy.a
 android/local.properties
 android/.idea
 android/bin
+android/gen
