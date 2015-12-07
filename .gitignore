@@ -3,3 +3,5 @@ build
 ios/AirTestFairy/AirTestFairy/TestFairy.h
 ios/AirTestFairy/AirTestFairy/libTestFairy.a
 android/local.properties
+.idea
+android/bin
