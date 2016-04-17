@@ -31,6 +31,13 @@ DEFINE_ANE_FUNCTION(AirTestFairySetCorrelationId)
 	return nil;
 }
 
+DEFINE_ANE_FUNCTION(AirTestFairyIdentify)
+{
+	NSString *correlationId = FPANE_FREObjectToNSString(argv[0]);
+	[TestFairy identify:correlationId];
+	return nil;
+}
+
 DEFINE_ANE_FUNCTION(AirTestFairyPause)
 {
 	[TestFairy pause];

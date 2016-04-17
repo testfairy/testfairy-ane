@@ -22,6 +22,7 @@ public class AirTestFairyContext extends FREContext {
 		functions.put("takeScreenshot", new TakeScreenshot());
 		functions.put("log", new Logger());
 		functions.put("getVersion", new GetVersion());
+		functions.put("identify", new Identify());
 
 		return functions;
 	}
@@ -106,7 +107,7 @@ public class AirTestFairyContext extends FREContext {
 		@Override
 		public FREObject call(FREContext freContext, FREObject[] freObjects) {
 			try {
-				TestFairy.takeScreenshot();
+				// TestFairy.takeScreenshot();
 			} catch (Exception exception) {
 				Log.e("AirTestFairyContext", "Failed to take a screenshot TestFairy", exception);
 			}
@@ -128,6 +129,19 @@ public class AirTestFairyContext extends FREContext {
 				return FREObject.newObject(TestFairy.getVersion());
 			} catch (Exception exception) {
 				Log.e("AirTestFairyContext", "Failed to get version of TestFairy", exception);
+			}
+			return  null;
+		}
+	}
+
+	private static class Identify implements FREFunction {
+		@Override
+		public FREObject call(FREContext freContext, FREObject[] freObjects) {
+			try {
+				String correlationId = freObjects[0].getAsString();
+				TestFairy.identify(correlationId);
+			} catch (Exception exception) {
+				Log.e("AirTestFairyContext", "Failed to call TestFairy.identify", exception);
 			}
 			return  null;
 		}
