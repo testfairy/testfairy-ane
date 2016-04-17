@@ -88,6 +88,7 @@ void AirTestFairyContextInitializer(void* extData, const uint8_t* ctxType, FRECo
 		@"log": [NSValue valueWithPointer:&AirTestFairyLog],
 		@"sendUserFeedback": [NSValue valueWithPointer:&AirTestFairySendUserFeedback],
 		@"getVersion": [NSValue valueWithPointer:&AirTestFairyGetVersion],
+		@"identify": [NSValue valueWithPointer:&AirTestFairyIdentify]
 	};
 	
 	*numFunctionsToTest = (uint32_t)[functions count];
