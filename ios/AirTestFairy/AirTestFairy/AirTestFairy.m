@@ -34,7 +34,33 @@ DEFINE_ANE_FUNCTION(AirTestFairySetCorrelationId)
 DEFINE_ANE_FUNCTION(AirTestFairyIdentify)
 {
 	NSString *correlationId = FPANE_FREObjectToNSString(argv[0]);
-	[TestFairy identify:correlationId];
+	NSString *traitString = FPANE_FREObjectToNSString(argv[1]);
+	NSMutableDictionary *identityTraits = [[NSMutableDictionary alloc] init];
+
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:@"MM-dd-yyyy HH:mm:ss"];
+	[dateFormatter setLocale:[NSLocale currentLocale]];
+
+	NSArray *attributesArray = [traitString componentsSeparatedByString:@"\n"];
+	for (int i = 0; i < [attributesArray count]; i++) {
+		NSString *keyValuePair = [attributesArray objectAtIndex:i];
+		NSRange range = [keyValuePair rangeOfString:@"="];
+		if (range.location != NSNotFound) {
+			NSString *unescapedKey = [keyValuePair substringToIndex:range.location];
+			NSString *key =[[unescapedKey stringByReplacingOccurrencesOfString:@"+" withString:@" "] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			
+			NSString *valueProperty = [keyValuePair substringFromIndex:range.location+1];
+			NSRange position = [valueProperty rangeOfString:@"/"];
+			if (position.location != NSNotFound) {
+				NSString *type = [valueProperty substringToIndex:position.location];
+				NSString *unescapedValue = [valueProperty substringFromIndex:position.location + 1];
+				NSString *escapedValue = [[unescapedValue stringByReplacingOccurrencesOfString:@"+" withString:@" "] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+				[identityTraits setObject:escapedValue forKey:key];
+			}
+		}
+	}
+
+	[TestFairy identify:correlationId traits:identityTraits];
 	return nil;
 }
 

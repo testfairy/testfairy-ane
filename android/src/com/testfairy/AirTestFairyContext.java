@@ -6,8 +6,13 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 import com.adobe.fre.FREObject;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.net.URLDecoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
 
 public class AirTestFairyContext extends FREContext {
 	@Override
@@ -139,11 +144,49 @@ public class AirTestFairyContext extends FREContext {
 		public FREObject call(FREContext freContext, FREObject[] freObjects) {
 			try {
 				String correlationId = freObjects[0].getAsString();
-				TestFairy.identify(correlationId);
+				String traitString = freObjects[1].getAsString();
+				if (traitString == null || traitString.trim().isEmpty()) {
+					TestFairy.identify(correlationId);
+				} else {
+					TestFairy.identify(correlationId, toHashMap(traitString));
+				}
 			} catch (Exception exception) {
 				Log.e("AirTestFairyContext", "Failed to call TestFairy.identify", exception);
 			}
 			return  null;
 		}
+	}
+
+	public static HashMap<String, Object> toHashMap(String traits) {
+		HashMap<String, Object> identityTraits = new HashMap<String, Object>();
+		for (String attribute : traits.split("\n")) {
+			int equalDelimiter = attribute.indexOf("=");
+			if (equalDelimiter == -1) {
+				Log.d("TestFairy", "Unusable attribute " + attribute);
+				continue;
+			}
+
+			try {
+				String unescapedKey = attribute.substring(0, equalDelimiter);
+				String key = URLDecoder.decode(unescapedKey, "UTF-8");
+				String valueProperty = attribute.substring(equalDelimiter + 1, attribute.length());
+				int typeDelimiter = valueProperty.indexOf("/");
+				if (typeDelimiter == -1) {
+					Log.d("TestFairy", "Unusable attribute " + attribute);
+					continue;
+				}
+
+				String type = valueProperty.substring(0, typeDelimiter);
+				String unescapedValue = valueProperty.substring(typeDelimiter + 1, valueProperty.length());
+				String escapedValue = URLDecoder.decode(unescapedValue, "UTF-8");
+				
+				identityTraits.put(key, escapedValue);
+
+			} catch (Exception exception) {
+				Log.d("TestFairy", "Failed to add attribute " + attribute, exception);
+			}
+		}
+
+		return identityTraits;
 	}
 }

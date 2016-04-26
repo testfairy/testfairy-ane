@@ -2,12 +2,14 @@ package com.testfairy
 {
 	import flash.external.ExtensionContext;
 	import flash.system.Capabilities;
-	
+	import flash.utils.Dictionary;
+	import flash.utils.getQualifiedClassName;
+
 	public class AirTestFairy
 	{
 		public static function get isSupported():Boolean
 		{
-			return Capabilities.manufacturer.indexOf("iOS") > -1;
+			return Capabilities.manufacturer.indexOf("iOS") > -1 || Capabilities.manufacturer.indexOf("Android") > -1;
 		}
 		
 		public static function begin(appToken:String):void
@@ -59,6 +61,25 @@ package com.testfairy
 		public static function getVersion():String
 		{
 			return call("getVersion");
+		}
+
+		public static function identify(correlation:String, options:Dictionary = null):void
+		{
+			var output:String = "";
+			if (options != null) {
+				for (var k:String in options) {
+					var key:String = k;
+					var value:Object = options[k];
+					
+					var encodedKey:String = escape(key);
+					var encodedValue:String = escape(value.toString());
+					var type: String = getQualifiedClassName(value); //"System.String";
+					
+					output += encodedKey + "=" + type + "/" + encodedValue + "\n";
+				}
+			}
+
+			call("identify", correlation, output);
 		}
 	
 		private static const EXTENSION_ID : String = "com.testfairy";

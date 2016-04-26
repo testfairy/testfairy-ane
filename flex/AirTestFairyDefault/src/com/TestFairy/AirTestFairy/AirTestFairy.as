@@ -1,5 +1,6 @@
 package com.TestFairy.AirTestFairy
 {
+	import flash.utils.Dictionary;
 	public class AirTestFairy
 	{
 		public static function get isSupported():Boolean
@@ -7,7 +8,7 @@ package com.TestFairy.AirTestFairy
 			return false;
 		}
 		
-		public static function begin():void
+		public static function begin(appToken:String):void
 		{
 		}	
 		
@@ -38,6 +39,15 @@ package com.TestFairy.AirTestFairy
 		
 		public static function log(value:String):void
 		{
+		}
+
+		public static function getVersion():String
+		{
+			return "";
+		}
+
+		public static function identify(value:String, options:Dictionary = null):void
+		{	
 		}
 	}
 }
