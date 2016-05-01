@@ -63,20 +63,11 @@ package com.testfairy
 			return call("getVersion");
 		}
 
-		public static function identify(correlation:String, options:Dictionary = null):void
+		public static function identify(correlation:String, options:Object = null):void
 		{
 			var output:String = "";
 			if (options != null) {
-				for (var k:String in options) {
-					var key:String = k;
-					var value:Object = options[k];
-					
-					var encodedKey:String = escape(key);
-					var encodedValue:String = escape(value.toString());
-					var type: String = getQualifiedClassName(value); //"System.String";
-					
-					output += encodedKey + "=" + type + "/" + encodedValue + "\n";
-				}
+				output = JSON.stringify(options);
 			}
 
 			call("identify", correlation, output);

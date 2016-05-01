@@ -7,12 +7,10 @@ import com.adobe.fre.FREFunction;
 import com.adobe.fre.FREObject;
 
 import java.util.Map;
-import java.net.URLDecoder;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class AirTestFairyContext extends FREContext {
 	@Override
@@ -148,7 +146,8 @@ public class AirTestFairyContext extends FREContext {
 				if (traitString == null || traitString.trim().isEmpty()) {
 					TestFairy.identify(correlationId);
 				} else {
-					TestFairy.identify(correlationId, toHashMap(traitString));
+					HashMap<String, Object> traits = toHashMap(traitString);
+					TestFairy.identify(correlationId, traits);
 				}
 			} catch (Exception exception) {
 				Log.e("AirTestFairyContext", "Failed to call TestFairy.identify", exception);
@@ -157,36 +156,26 @@ public class AirTestFairyContext extends FREContext {
 		}
 	}
 
-	public static HashMap<String, Object> toHashMap(String traits) {
-		HashMap<String, Object> identityTraits = new HashMap<String, Object>();
-		for (String attribute : traits.split("\n")) {
-			int equalDelimiter = attribute.indexOf("=");
-			if (equalDelimiter == -1) {
-				Log.d("TestFairy", "Unusable attribute " + attribute);
-				continue;
-			}
+    private static HashMap<String, Object> toHashMap(String input) {
+        HashMap<String, Object> map = new HashMap<String, Object>();
 
-			try {
-				String unescapedKey = attribute.substring(0, equalDelimiter);
-				String key = URLDecoder.decode(unescapedKey, "UTF-8");
-				String valueProperty = attribute.substring(equalDelimiter + 1, attribute.length());
-				int typeDelimiter = valueProperty.indexOf("/");
-				if (typeDelimiter == -1) {
-					Log.d("TestFairy", "Unusable attribute " + attribute);
-					continue;
-				}
+        try {
+            JSONObject object = new JSONObject(input);
+            JSONArray keys = object.names();
+            if (keys == null)
+                return map;
 
-				String type = valueProperty.substring(0, typeDelimiter);
-				String unescapedValue = valueProperty.substring(typeDelimiter + 1, valueProperty.length());
-				String escapedValue = URLDecoder.decode(unescapedValue, "UTF-8");
-				
-				identityTraits.put(key, escapedValue);
+            for (int index = 0, count = keys.length(); index < count; index++) {
+                String key = keys.getString(index);
+                String value = object.getString(key);
+                map.put(key, value);
+            }
 
-			} catch (Exception exception) {
-				Log.d("TestFairy", "Failed to add attribute " + attribute, exception);
-			}
-		}
 
-		return identityTraits;
-	}
+        } catch (Exception exception) {
+            Log.d("TestFairy", "Failed to parse input " + input, exception);
+        }
+
+        return map;
+    }
 }

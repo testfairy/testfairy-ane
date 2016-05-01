@@ -46,7 +46,7 @@ package com.TestFairy.AirTestFairy
 			return "";
 		}
 
-		public static function identify(value:String, options:Dictionary = null):void
+		public static function identify(value:String, options:Object = null):void
 		{	
 		}
 	}
