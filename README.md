@@ -22,4 +22,26 @@ If you are developing using Adobe Flex, add an import and a call to your `onAppl
 
 Replace ***APP_TOKEN*** with your app token value taken from the [User Preferences](https://app.testfairy.com/settings/) page.
 
+### Android
+Android requires some extra permissions and activities to be added to the final `AndroidManifest.xml`. This can be done by editing your project's app xml, and modifying the `android` tag with the following:
+
+```xml
+<android>
+    <manifestAdditions><![CDATA[
+		<manifest android:installLocation="auto">
+		    <uses-permission android:name="android.permission.INTERNET"/>
+		    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+		    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+		    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+		    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+		    <uses-permission android:name="android.permission.GET_TASKS"/>
+		    <application>
+		        <activity android:name="com.testfairy.activities.ProvideFeedbackActivity" android:configChanges="orientation|screenSize"/>
+		        <activity android:name="com.testfairy.activities.AutoUpdateActivity" android:configChanges="orientation|screenSize"/>
+		    </application>			    
+		</manifest>	
+	]]></manifestAdditions>
+</android>
+```
+
 ### You are ready to build and run your project

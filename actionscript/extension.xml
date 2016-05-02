@@ -1,4 +1,4 @@
-<extension xmlns="http://ns.adobe.com/air/extension/3.1">
+<extension xmlns="http://ns.adobe.com/air/extension/17.0">
     <id>com.testfairy</id>
     <versionNumber>0.0.1</versionNumber>
     <platforms>
@@ -15,6 +15,12 @@
                 <initializer>com.testfairy.AirTestFairy</initializer>
             </applicationDeployment>
         </platform>
+        <platform name="Android-x86">
+            <applicationDeployment>
+                <nativeLibrary>libAirTestFairy.jar</nativeLibrary>
+                <initializer>com.testfairy.AirTestFairy</initializer>
+            </applicationDeployment>
+        </platform>        
         <platform name="default">
             <applicationDeployment/>
         </platform>   

@@ -12,6 +12,8 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.testfairy.TestFairy;
+
 public class AirTestFairyContext extends FREContext {
 	@Override
 	public Map<String, FREFunction> getFunctions() {
@@ -170,8 +172,6 @@ public class AirTestFairyContext extends FREContext {
                 String value = object.getString(key);
                 map.put(key, value);
             }
-
-
         } catch (Exception exception) {
             Log.d("TestFairy", "Failed to parse input " + input, exception);
         }
