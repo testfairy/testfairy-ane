@@ -31,6 +31,30 @@ DEFINE_ANE_FUNCTION(AirTestFairySetCorrelationId)
 	return nil;
 }
 
+DEFINE_ANE_FUNCTION(AirTestFairyIdentify)
+{
+	NSString *correlationId = FPANE_FREObjectToNSString(argv[0]);
+	NSString *traitString = FPANE_FREObjectToNSString(argv[1]);
+	NSDictionary *identityTraits = nil;
+	
+	@try
+	{
+		NSError *error;
+		NSData *jsonData = [traitString dataUsingEncoding:NSUTF8StringEncoding];
+		identityTraits = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+	}
+	@catch (NSException* exception)
+	{
+	}
+
+	if (identityTraits == nil) {
+		[TestFairy identify:correlationId];
+	} else {
+		[TestFairy identify:correlationId traits:identityTraits];
+	}
+	return nil;
+}
+
 DEFINE_ANE_FUNCTION(AirTestFairyPause)
 {
 	[TestFairy pause];
@@ -71,7 +95,7 @@ DEFINE_ANE_FUNCTION(AirTestFairyGetVersion)
 void AirTestFairyContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
 {
 	NSDictionary *functions = @{
-        	@"begin": [NSValue valueWithPointer:&AirTestFairyBegin],
+		@"begin": [NSValue valueWithPointer:&AirTestFairyBegin],
 		@"pause": [NSValue valueWithPointer:&AirTestFairyPause],
 		@"resume": [NSValue valueWithPointer:&AirTestFairyResume],
 		@"takeScreenshot": [NSValue valueWithPointer:&AirTestFairyTakeScreenshot],
@@ -81,6 +105,7 @@ void AirTestFairyContextInitializer(void* extData, const uint8_t* ctxType, FRECo
 		@"log": [NSValue valueWithPointer:&AirTestFairyLog],
 		@"sendUserFeedback": [NSValue valueWithPointer:&AirTestFairySendUserFeedback],
 		@"getVersion": [NSValue valueWithPointer:&AirTestFairyGetVersion],
+		@"identify": [NSValue valueWithPointer:&AirTestFairyIdentify]
 	};
 	
 	*numFunctionsToTest = (uint32_t)[functions count];
