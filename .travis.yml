@@ -16,11 +16,14 @@ before_script:
 script:
   - make
 
+before_deploy:
+  - mv build/AirTestFairy.ane build/TestFairySDK-${TRAVIS_TAG}.ane
+
 deploy:
   provider: releases
   api_key:
     secure: XKsQDsEhO3EbKE58KUa4t7lejbZDnNPe1HnRdXPzl7EnPLt7HAVCr2w7uaQaFlIDbzb+7yuPx3z0mc//x1efH5ihF8LJ2oD0p3JOsZXq29AvQloO7V2RqxloHIXmzueH1StnVnI1vwdKaF2g1RhmuX7TBufLex+SzdZZTdpE0vc=
-  file: build/AirTestFairy.ane
+  file: build/TestFairySDK-${TRAVIS_TAG}.ane
   skip_cleanup: true
   on:
     tags: true
