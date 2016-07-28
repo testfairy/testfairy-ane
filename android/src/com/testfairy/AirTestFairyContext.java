@@ -113,6 +113,7 @@ public class AirTestFairyContext extends FREContext {
 		public FREObject call(FREContext freContext, FREObject[] freObjects) {
 			try {
 				// TestFairy.takeScreenshot();
+				Log.i("AirTestFairyContext", "AirTestFairy does not support taking screenshots");
 			} catch (Exception exception) {
 				Log.e("AirTestFairyContext", "Failed to take a screenshot TestFairy", exception);
 			}
@@ -123,6 +124,12 @@ public class AirTestFairyContext extends FREContext {
 	private static class Logger implements FREFunction {
 		@Override
 		public FREObject call(FREContext freContext, FREObject[] freObjects) {
+			try {
+				String log = freObjects[0].getAsString();
+				TestFairy.log("AirTestFairyContext", log);
+			} catch (Exception exception) {
+				Log.e("AirTestFairyContext", "Failed to log", exception);
+			}
 			return null;
 		}
 	}
