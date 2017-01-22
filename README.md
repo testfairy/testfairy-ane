@@ -1,7 +1,7 @@
 # TestFairy plugin for Adobe Air
 
 For class reference, installation and more information, please visit 
-[Adobe Air integration document](http://docs.testfairy.com/Integrations/Adobe_Air.html) on TestFairy.
+[Adobe Air integration document](http://docs.testfairy.com/Platforms/Adobe_Air.html) on TestFairy.
 
 License
 =======
