@@ -28,6 +28,12 @@ public class AirTestFairyContext extends FREContext {
 		functions.put("log", new Logger());
 		functions.put("getVersion", new GetVersion());
 		functions.put("identify", new Identify());
+		functions.put("setUserId", new SetUserId());
+		functions.put("setAttribute", new SetAttribute());
+		functions.put("setServerEndpoint", new SetServerEndpoint());
+		functions.put("sendUserFeedback", new SendUserFeedback());
+		functions.put("checkpoint", new SetCheckpoint());
+		functions.put("setScreenName", new SetScreenName());
 
 		return functions;
 	}
@@ -164,6 +170,87 @@ public class AirTestFairyContext extends FREContext {
 			return  null;
 		}
 	}
+
+	private static class SetUserId implements FREFunction {
+		@Override
+		public FREObject call(FREContext freContext, FREObject[] freObjects) {
+			try {
+				String userId = freObjects[0].getAsString();
+				TestFairy.setUserId(userId);
+			} catch (Exception exception) {
+				Log.e("AirTestFairyContext", "Failed to set user id in TestFairy", exception);
+			}
+			return null;
+		}
+	}
+
+	private static class SetAttribute implements FREFunction  {
+		@Override
+		public FREObject call(FREContext freContext, FREObject[] freObjects) {
+			try {
+				String key = freObjects[0].getAsString();
+				String value = freObjects[1].getAsString();
+
+				return FREObject.newObject(TestFairy.setAttribute(key, value));
+			} catch (Exception exception) {
+				Log.e("AirTestFairyContext", "Failed to set attributes in TestFairy", exception);
+			}
+			return null;
+		}
+	}
+
+	private static class SetServerEndpoint implements FREFunction  {
+		@Override
+		public FREObject call(FREContext freContext, FREObject[] freObjects) {
+			try {
+				String endpoint = freObjects[0].getAsString();
+				TestFairy.setServerEndpoint(endpoint);
+			} catch (Exception exception) {
+				Log.e("AirTestFairyContext", "Failed to set endpoint in TestFairy", exception);
+			}
+			return null;
+		}
+	}
+
+	private static class SendUserFeedback implements FREFunction  {
+		@Override
+		public FREObject call(FREContext freContext, FREObject[] freObjects) {
+			try {
+				String feedback = freObjects[0].getAsString();
+				TestFairy.sendUserFeedback(feedback);
+			} catch (Exception exception) {
+				Log.e("AirTestFairyContext", "Failed to send feedback to TestFairy", exception);
+			}
+			return null;
+		}
+	}
+
+	private static class SetCheckpoint implements FREFunction  {
+		@Override
+		public FREObject call(FREContext freContext, FREObject[] freObjects) {
+			try {
+				String name = freObjects[0].getAsString();
+				TestFairy.addEvent(name);
+			} catch (Exception exception) {
+				Log.e("AirTestFairyContext", "Failed to add checkpoint in TestFairy", exception);
+			}
+			return null;
+		}
+	}
+
+	private static class SetScreenName implements FREFunction  {
+		@Override
+		public FREObject call(FREContext freContext, FREObject[] freObjects) {
+			try {
+				String name = freObjects[0].getAsString();
+				TestFairy.setScreenName(name);
+			} catch (Exception exception) {
+				Log.e("AirTestFairyContext", "Failed to set screen name in TestFairy", exception);
+			}
+			return null;
+		}
+	}
+
 
     private static HashMap<String, Object> toHashMap(String input) {
         HashMap<String, Object> map = new HashMap<String, Object>();

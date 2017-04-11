@@ -72,6 +72,30 @@ package com.testfairy
 
 			call("identify", correlation, output);
 		}
+
+		public static function setUserId(userId:String):void {
+			call("setUserId", userId);
+		}
+
+		public static function setAttribute(aKey:String, aValue:String):Boolean {
+			return call("setAttribute", aKey, aValue);
+		}
+
+		public static function setServerEndpoint(endpoint:String):void {
+			call("setServerEndpoint", endpoint);
+		}
+
+		public static function sendUserFeedback(feedback:String):void {
+			call("sendUserFeedback", feedback);
+		}
+
+		public static function checkpoint(aName:String):void {
+			call("checkpoint", aName);
+		}
+
+		public static function setScreenName(aName:String):void {
+			call("setScreenName", aName);
+		}
 	
 		private static const EXTENSION_ID : String = "com.testfairy";
 		
