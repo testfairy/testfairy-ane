@@ -110,12 +110,6 @@ DEFINE_ANE_FUNCTION(AirTestFairySetServerEndpoint) {
 	return nil;
 }
 
-DEFINE_ANE_FUNCTION(AirTestFairySendUserFeedback) {
-	NSString *feedback = FPANE_FREObjectToNSString(argv[0]);
-	[TestFairy sendUserFeedback:feedback];
-	return nil;
-}
-
 DEFINE_ANE_FUNCTION(AirTestFairyCheckpoint) {
 	NSString *name = FPANE_FREObjectToNSString(argv[0]);
 	[TestFairy checkpoint:name];
@@ -152,7 +146,6 @@ void AirTestFairyContextInitializer(void* extData, const uint8_t* ctxType, FRECo
 		@"setUserId": [NSValue valueWithPointer:&AirTestFairySetUserId],
 		@"setAttribute": [NSValue valueWithPointer:&AirTestFairySetAttribute],
 		@"setServerEndpoint": [NSValue valueWithPointer:&AirTestFairySetServerEndpoint],
-		@"sendUserFeedback": [NSValue valueWithPointer:&AirTestFairySendUserFeedback],
 		@"checkpoint": [NSValue valueWithPointer:&AirTestFairyCheckpoint],
 		@"setScreenName": [NSValue valueWithPointer:&AirTestFairySetScreenName],
 		@"stop": [NSValue valueWithPointer:&AirTestFairyStop],
