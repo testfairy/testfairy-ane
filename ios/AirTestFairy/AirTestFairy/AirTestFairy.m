@@ -128,6 +128,11 @@ DEFINE_ANE_FUNCTION(AirTestFairySetScreenName) {
 	return nil;
 }
 
+DEFINE_ANE_FUNCTION(AirTestFairyStop) {
+	[TestFairy stop];
+	return nil;
+}
+
 #pragma mark - ANE Setup
 
 void AirTestFairyContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
@@ -150,6 +155,7 @@ void AirTestFairyContextInitializer(void* extData, const uint8_t* ctxType, FRECo
 		@"sendUserFeedback": [NSValue valueWithPointer:&AirTestFairySendUserFeedback],
 		@"checkpoint": [NSValue valueWithPointer:&AirTestFairyCheckpoint],
 		@"setScreenName": [NSValue valueWithPointer:&AirTestFairySetScreenName],
+		@"stop": [NSValue valueWithPointer:&AirTestFairyStop],
 	};
 	
 	*numFunctionsToTest = (uint32_t)[functions count];

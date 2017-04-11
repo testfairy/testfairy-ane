@@ -96,6 +96,10 @@ package com.testfairy
 		public static function setScreenName(aName:String):void {
 			call("setScreenName", aName);
 		}
+
+		public static function stop():void {
+			call("stop");
+		}
 	
 		private static const EXTENSION_ID : String = "com.testfairy";
 		

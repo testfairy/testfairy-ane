@@ -34,6 +34,7 @@ public class AirTestFairyContext extends FREContext {
 		functions.put("sendUserFeedback", new SendUserFeedback());
 		functions.put("checkpoint", new SetCheckpoint());
 		functions.put("setScreenName", new SetScreenName());
+		functions.put("stop", new Stop());
 
 		return functions;
 	}
@@ -251,6 +252,17 @@ public class AirTestFairyContext extends FREContext {
 		}
 	}
 
+	private static class Stop implements FREFunction  {
+		@Override
+		public FREObject call(FREContext freContext, FREObject[] freObjects) {
+			try {
+				TestFairy.stop();
+			} catch (Exception exception) {
+				Log.e("AirTestFairyContext", "Failed to stop session in TestFairy", exception);
+			}
+			return null;
+		}
+	}
 
     private static HashMap<String, Object> toHashMap(String input) {
         HashMap<String, Object> map = new HashMap<String, Object>();

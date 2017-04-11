@@ -24,6 +24,7 @@ DEFINE_ANE_FUNCTION(AirTestFairySetServerEndpoint);
 DEFINE_ANE_FUNCTION(AirTestFairySendUserFeedback);
 DEFINE_ANE_FUNCTION(AirTestFairyCheckpoint);
 DEFINE_ANE_FUNCTION(AirTestFairySetScreenName);
+DEFINE_ANE_FUNCTION(AirTestFairyStop);
 
 // ANE Setup
 void AirTestFairyContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet);
