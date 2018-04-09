@@ -62,6 +62,7 @@ public class AirTestFairyContext extends FREContext {
 	private static class PushFeedbackController implements FREFunction {
 		@Override
 		public FREObject call(FREContext freContext, FREObject[] freObjects) {
+			TestFairy.showFeedbackForm();
 			return null;
 		}
 	}
