@@ -1,6 +1,6 @@
 <extension xmlns="http://ns.adobe.com/air/extension/17.0">
     <id>com.testfairy</id>
-    <versionNumber>2.21.0</versionNumber>
+    <versionNumber>2.21.1</versionNumber>
     <platforms>
         <platform name="iPhone-ARM">
             <applicationDeployment>
