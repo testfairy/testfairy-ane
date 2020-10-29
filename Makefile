@@ -1,4 +1,4 @@
-VERSION=1.26.1
+VERSION=1.26.6
 CONFIGURATION=Release
 
 all: build/AirTestFairy.ane
