@@ -3,7 +3,13 @@ matrix:
   fast_finish: true
 
 before_install:
-  - brew install ant
+  - brew tap AdoptOpenJDK/homebrew-openjdk
+  - brew install --cask adoptopenjdk8
+  - export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+  - wget https://apache.mirror.colo-serv.net//ant/binaries/apache-ant-1.10.9-bin.zip
+  - unzip apache-ant-1.10.9-bin.zip
+  - export PATH=$PWD/apache-ant-1.10.9/bin/:$PATH
+  - echo $PATH
   - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
   - unzip android-sdk_r24.4.1-macosx.zip
   - export ANDROID_HOME=$PWD/android-sdk-macosx
@@ -28,4 +34,3 @@ deploy:
   on:
     tags: true
     all_branches: true
-
