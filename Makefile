@@ -55,9 +55,11 @@ build/AirTestFairy.ane: airsdk/bin/adt build/AirTestFairy.swc
 	cp -f actionscript/extension.xml build/extension.xml
 	cp -f actionscript/platform-ios.xml build/platform-ios.xml
 	cp -f actionscript/platform-android.xml build/platform-android.xml
-	airsdk/bin/adt -package -target ane build/AirTestFairy.ane build/extension.xml \
+	airsdk/bin/adt -package \
+		-target ane build/AirTestFairy.ane build/extension.xml \
 		-swc build/AirTestFairy.swc \
 		-platform iPhone-ARM -platformoptions build/platform-ios.xml -C build/ios . \
+		-platform iPhone-x86 -platformoptions build/platform-ios.xml -C build/ios . \
 		-platform Android-ARM -platformoptions build/platform-android.xml -C build/android . \
 		-platform Android-x86 -platformoptions build/platform-android.xml -C build/android . \
 		-platform default -C build/default .
