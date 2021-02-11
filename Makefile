@@ -60,6 +60,7 @@ build/AirTestFairy.ane: airsdk/bin/adt build/AirTestFairy.swc
 		-target ane build/AirTestFairy.ane build/extension.xml \
 		-swc build/AirTestFairy.swc \
 		-platform iPhone-ARM -platformoptions build/platform-ios.xml -C build/ios . \
+		-platform iPhone-x86 -platformoptions build/platform-ios.xml -C build/ios . \
 		-platform Android-ARM -platformoptions build/platform-android.xml -C build/android . \
 		-platform Android-x86 -platformoptions build/platform-android.xml -C build/android . \
 		-platform default -C build/default .
