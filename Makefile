@@ -16,7 +16,7 @@ ios/AirTestFairy/AirTestFairy/libTestFairy.a:
 	curl -L -s -o ./ios/AirTestFairy/AirTestFairy/sdk.zip "http://app.testfairy.com/ios-sdk/TestFairySDK-${VERSION}.zip"
 	unzip -q -o -d ./ios/AirTestFairy/AirTestFairy ./ios/AirTestFairy/AirTestFairy/sdk.zip libTestFairy.a TestFairy.h
 	-rm -f ./ios/AirTestFairy/AirTestFairy/sdk.zip
-	
+
 build/ios/libAirTestFairy.a: ios/AirTestFairy/AirTestFairy/libTestFairy.a
 	xcodebuild -project ./ios/AirTestFairy/AirTestFairy.xcodeproj -configuration $(CONFIGURATION) -sdk iphoneos
 	xcodebuild -project ./ios/AirTestFairy/AirTestFairy.xcodeproj -configuration $(CONFIGURATION) -sdk iphonesimulator
@@ -27,7 +27,7 @@ build/ios/libAirTestFairy.a: ios/AirTestFairy/AirTestFairy/libTestFairy.a
 	mkdir -p build/ios
 	cp -f ios/build/$(CONFIGURATION)-universal/libAirTestFairy.a build/ios/libAirTestFairy.a
 
-build/android/libAirTestFairy.jar: 
+build/android/libAirTestFairy.jar:
 	ant clean -file android/build.xml
 	ant jar -file android/build.xml
 	mkdir -p build/android
@@ -60,7 +60,7 @@ build/AirTestFairy.ane: airsdk/bin/adt build/AirTestFairy.swc
 		-platform default -C build/default .
 
 clean:
-	-rm -rf build 
+	-rm -rf build
 	-rm ios/AirTestFairy/AirTestFairy/TestFairy.h
 	-rm ios/AirTestFairy/AirTestFairy/libTestFairy.a
 	-rm -rf airsdk
