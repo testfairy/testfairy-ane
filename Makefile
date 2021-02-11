@@ -22,6 +22,8 @@ build/ios/libAirTestFairy.a: ios/AirTestFairy/AirTestFairy/libTestFairy.a
 	xcodebuild -project ./ios/AirTestFairy/AirTestFairy.xcodeproj -configuration $(CONFIGURATION) -sdk iphoneos
 	xcodebuild -project ./ios/AirTestFairy/AirTestFairy.xcodeproj -configuration $(CONFIGURATION) -sdk iphonesimulator
 	mkdir -p ios/build/$(CONFIGURATION)-universal
+	file ios/AirTestFairy/build/$(CONFIGURATION)-iphonesimulator/libAirTestFairy.a
+	file ios/AirTestFairy/build/$(CONFIGURATION)-iphoneos/libAirTestFairy.a
 	lipo -create ios/AirTestFairy/build/$(CONFIGURATION)-iphoneos/libAirTestFairy.a \
 		ios/AirTestFairy/build/$(CONFIGURATION)-iphonesimulator/libAirTestFairy.a \
 		-output ios/build/$(CONFIGURATION)-universal/libAirTestFairy.a
