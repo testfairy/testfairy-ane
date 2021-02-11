@@ -1,4 +1,4 @@
-airsdk
+# airsdk
 build
 ios/AirTestFairy/AirTestFairy/TestFairy.h
 ios/AirTestFairy/AirTestFairy/libTestFairy.a

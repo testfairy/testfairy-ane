@@ -6,11 +6,12 @@ all: build/AirTestFairy.ane
 # Check https://helpx.adobe.com/ca/air/kb/archived-air-sdk-version.html for latest versions
 
 airsdk/bin/adt:
-	rm -rf airsdk
-	mkdir airsdk
-	wget -P airsdk https://airdownload.adobe.com/air/mac/download/31.0/AIRSDK_Compiler.dmg
-	hdiutil attach airsdk/AIRSDK_Compiler.dmg
-	cp -R /Volumes/AIR\ SDK/* airsdk/.
+	# rm -rf airsdk
+	# mkdir airsdk
+	# wget -P airsdk https://airdownload.adobe.com/air/mac/download/31.0/AIRSDK_Compiler.dmg
+	# hdiutil attach airsdk/AIRSDK_Compiler.dmg
+	# cp -R /Volumes/AIR\ SDK/* airsdk/.
+	ls -lsrt airsdk
 
 ios/AirTestFairy/AirTestFairy/libTestFairy.a:
 	curl -L -s -o ./ios/AirTestFairy/AirTestFairy/sdk.zip "http://app.testfairy.com/ios-sdk/TestFairySDK-${VERSION}.zip"
