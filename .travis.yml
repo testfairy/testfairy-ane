@@ -1,7 +1,5 @@
 language: objective-c
 osx_image: xcode11
-matrix:
-  fast_finish: true
 
 before_install:
   - brew update

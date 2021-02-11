@@ -29,6 +29,7 @@ build/ios/libAirTestFairy.a: ios/AirTestFairy/AirTestFairy/libTestFairy.a
 		-output ios/build/$(CONFIGURATION)-universal/libAirTestFairy.a
 	mkdir -p build/ios
 	cp -f ios/build/$(CONFIGURATION)-universal/libAirTestFairy.a build/ios/libAirTestFairy.a
+	file build/ios/libAirTestFairy.a
 
 build/android/libAirTestFairy.jar:
 	ant clean -file android/build.xml
@@ -59,7 +60,6 @@ build/AirTestFairy.ane: airsdk/bin/adt build/AirTestFairy.swc
 		-target ane build/AirTestFairy.ane build/extension.xml \
 		-swc build/AirTestFairy.swc \
 		-platform iPhone-ARM -platformoptions build/platform-ios.xml -C build/ios . \
-		-platform iPhone-x86 -platformoptions build/platform-ios.xml -C build/ios . \
 		-platform Android-ARM -platformoptions build/platform-android.xml -C build/android . \
 		-platform Android-x86 -platformoptions build/platform-android.xml -C build/android . \
 		-platform default -C build/default .
