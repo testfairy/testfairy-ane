@@ -16,10 +16,10 @@ before_install:
   - unzip android-sdk_r24.4.1-macosx.zip
   - export ANDROID_HOME=$PWD/android-sdk-macosx
   - export PATH=$PATH:$ANDROID_HOME/tools
-  - ( sleep 1 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk --all --no-ui --filter platform-tool,android-19,sysimg-19,build-tools-30.0.2,extra-android-support,sys-img-armeabi-v7a-android-19
+  - ( sleep 1 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk --all --no-ui --filter platform-tools,android-21,build-tools-30.0.0-preview
 
 before_script:
-  - android update project -t android-19 -p android/.
+  - android update project -t android-21 -p android/.
 
 script:
   - make ios/AirTestFairy/AirTestFairy/libTestFairy.a
