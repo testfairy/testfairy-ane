@@ -10,7 +10,7 @@ before_install:
   - unzip apache-ant-1.10.9-bin.zip
   - export PATH=$PWD/apache-ant-1.10.9/bin/:$PATH
   - export AIR_SDK=$PWD/airsdk
-  - export XCODE_BUILD=`xcodebuild`
+  - export XCODE_BUILD=`which xcodebuild`
   - echo $PATH
   - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
   - unzip android-sdk_r24.4.1-macosx.zip
@@ -24,7 +24,7 @@ before_script:
 script:
   - cd build
   - echo "air.sdk.home = $AIR_SDK" >> build.config
-  - echo "android.sdk.home = $ANDROID_SDK" >> build.config
+  - echo "android.sdk.home = $ANDROID_HOME" >> build.config
   - echo "ios.sdk.build = $XCODE_BUILD" >> build.config
   - cat build.config
   - ant
