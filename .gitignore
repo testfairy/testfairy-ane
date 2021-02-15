@@ -1,5 +1,5 @@
 # airsdk
-build
+build/temp
 ios/AirTestFairy/AirTestFairy/TestFairy.h
 ios/AirTestFairy/AirTestFairy/libTestFairy.a
 android/local.properties

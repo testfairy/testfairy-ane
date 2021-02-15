@@ -1,4 +1,4 @@
-VERSION=1.26.9
+VERSION=1.27.2
 CONFIGURATION=Release
 
 all: build/AirTestFairy.ane
@@ -69,4 +69,3 @@ clean:
 	-rm -rf build
 	-rm ios/AirTestFairy/AirTestFairy/TestFairy.h
 	-rm ios/AirTestFairy/AirTestFairy/libTestFairy.a
-	-rm -rf airsdk

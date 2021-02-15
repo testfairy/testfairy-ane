@@ -1,0 +1,322 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA6571671AC168EB00F9F369 /* AirTestFairy.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA6571661AC168EB00F9F369 /* AirTestFairy.h */; };
+		DA6571691AC168EB00F9F369 /* AirTestFairy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6571681AC168EB00F9F369 /* AirTestFairy.m */; };
+		DA6571801AC16A1900F9F369 /* FPANEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DA65717F1AC16A1900F9F369 /* FPANEUtils.m */; };
+		DA6571851AC1801300F9F369 /* libTestFairy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6571831AC1801300F9F369 /* libTestFairy.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DA6571611AC168EA00F9F369 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				DA6571671AC168EB00F9F369 /* AirTestFairy.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		DA6571631AC168EA00F9F369 /* libAirTestFairy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAirTestFairy.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA6571661AC168EB00F9F369 /* AirTestFairy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirTestFairy.h; sourceTree = "<group>"; };
+		DA6571681AC168EB00F9F369 /* AirTestFairy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirTestFairy.m; sourceTree = "<group>"; };
+		DA65717D1AC1697200F9F369 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = SOURCE_ROOT; };
+		DA65717E1AC16A1900F9F369 /* FPANEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPANEUtils.h; path = AirTestFairy/FPANEUtils.h; sourceTree = SOURCE_ROOT; };
+		DA65717F1AC16A1900F9F369 /* FPANEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FPANEUtils.m; path = AirTestFairy/FPANEUtils.m; sourceTree = SOURCE_ROOT; };
+		DA6571821AC16C0100F9F369 /* AirTestFairy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AirTestFairy-Prefix.pch"; sourceTree = "<group>"; };
+		DA6571831AC1801300F9F369 /* libTestFairy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFairy.a; sourceTree = "<group>"; };
+		DA6571841AC1801300F9F369 /* TestFairy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFairy.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA6571601AC168EA00F9F369 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA6571851AC1801300F9F369 /* libTestFairy.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA65715A1AC168EA00F9F369 = {
+			isa = PBXGroup;
+			children = (
+				DA6571651AC168EA00F9F369 /* AirTestFairy */,
+				DA6571721AC168EB00F9F369 /* AirTestFairyTests */,
+				DA6571641AC168EA00F9F369 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA6571641AC168EA00F9F369 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA6571631AC168EA00F9F369 /* libAirTestFairy.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA6571651AC168EA00F9F369 /* AirTestFairy */ = {
+			isa = PBXGroup;
+			children = (
+				DA6571831AC1801300F9F369 /* libTestFairy.a */,
+				DA6571841AC1801300F9F369 /* TestFairy.h */,
+				DA6571661AC168EB00F9F369 /* AirTestFairy.h */,
+				DA6571681AC168EB00F9F369 /* AirTestFairy.m */,
+			);
+			path = AirTestFairy;
+			sourceTree = "<group>";
+		};
+		DA6571721AC168EB00F9F369 /* AirTestFairyTests */ = {
+			isa = PBXGroup;
+			children = (
+				DA6571731AC168EB00F9F369 /* Supporting Files */,
+			);
+			path = AirTestFairyTests;
+			sourceTree = "<group>";
+		};
+		DA6571731AC168EB00F9F369 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA6571821AC16C0100F9F369 /* AirTestFairy-Prefix.pch */,
+				DA65717E1AC16A1900F9F369 /* FPANEUtils.h */,
+				DA65717F1AC16A1900F9F369 /* FPANEUtils.m */,
+				DA65717D1AC1697200F9F369 /* FlashRuntimeExtensions.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA6571621AC168EA00F9F369 /* AirTestFairy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA6571771AC168EB00F9F369 /* Build configuration list for PBXNativeTarget "AirTestFairy" */;
+			buildPhases = (
+				DA65715F1AC168EA00F9F369 /* Sources */,
+				DA6571601AC168EA00F9F369 /* Frameworks */,
+				DA6571611AC168EA00F9F369 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AirTestFairy;
+			productName = AirTestFairy;
+			productReference = DA6571631AC168EA00F9F369 /* libAirTestFairy.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA65715B1AC168EA00F9F369 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+				ORGANIZATIONNAME = TestFairy;
+				TargetAttributes = {
+					DA6571621AC168EA00F9F369 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = DA65715E1AC168EA00F9F369 /* Build configuration list for PBXProject "AirTestFairy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA65715A1AC168EA00F9F369;
+			productRefGroup = DA6571641AC168EA00F9F369 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA6571621AC168EA00F9F369 /* AirTestFairy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA65715F1AC168EA00F9F369 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA6571801AC16A1900F9F369 /* FPANEUtils.m in Sources */,
+				DA6571691AC168EB00F9F369 /* AirTestFairy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DA6571751AC168EB00F9F369 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DA6571761AC168EB00F9F369 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA6571781AC168EB00F9F369 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(VALID_ARCHS)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AirTestFairy",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD)";
+				"VALID_ARCHS[sdk=iphonesimulator*]" = "i386 x86_64";
+			};
+			name = Debug;
+		};
+		DA6571791AC168EB00F9F369 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(VALID_ARCHS)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AirTestFairy",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD)";
+				"VALID_ARCHS[sdk=iphonesimulator*]" = "i386 x86_64";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA65715E1AC168EA00F9F369 /* Build configuration list for PBXProject "AirTestFairy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA6571751AC168EB00F9F369 /* Debug */,
+				DA6571761AC168EB00F9F369 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA6571771AC168EB00F9F369 /* Build configuration list for PBXNativeTarget "AirTestFairy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA6571781AC168EB00F9F369 /* Debug */,
+				DA6571791AC168EB00F9F369 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA65715B1AC168EA00F9F369 /* Project object */;
+}

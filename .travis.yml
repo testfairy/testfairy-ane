@@ -9,6 +9,8 @@ before_install:
   - wget https://apache.mirror.colo-serv.net//ant/binaries/apache-ant-1.10.9-bin.zip
   - unzip apache-ant-1.10.9-bin.zip
   - export PATH=$PWD/apache-ant-1.10.9/bin/:$PATH
+  - export AIR_SDK=$PWD/airsdk
+  - export XCODE_BUILD=`xcodebuild`
   - echo $PATH
   - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
   - unzip android-sdk_r24.4.1-macosx.zip
@@ -20,7 +22,9 @@ before_script:
   - android update project -t android-19 -p android/.
 
 script:
-  - make
+  - cd build
+  - cat build.config
+  - ant
 
 before_deploy:
   - mv build/AirTestFairy.ane build/TestFairySDK-${TRAVIS_TAG}.ane
