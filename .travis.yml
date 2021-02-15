@@ -22,6 +22,7 @@ before_script:
   - android update project -t android-19 -p android/.
 
 script:
+  - make ios/AirTestFairy/AirTestFairy/libTestFairy.a
   - cd build
   - echo "air.sdk.home = $AIR_SDK" >> build.config
   - echo "android.sdk.home = $ANDROID_HOME" >> build.config

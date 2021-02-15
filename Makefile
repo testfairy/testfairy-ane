@@ -14,9 +14,9 @@ airsdk/bin/adt:
 	ls -lsrt airsdk
 
 ios/AirTestFairy/AirTestFairy/libTestFairy.a:
-	curl -L -s -o ./ios/AirTestFairy/AirTestFairy/sdk.zip "http://app.testfairy.com/ios-sdk/TestFairySDK-${VERSION}.zip"
-	unzip -q -o -d ./ios/AirTestFairy/AirTestFairy ./ios/AirTestFairy/AirTestFairy/sdk.zip libTestFairy.a TestFairy.h
-	-rm -f ./ios/AirTestFairy/AirTestFairy/sdk.zip
+	curl -L -s -o ./ios/sdk.zip "http://app.testfairy.com/ios-sdk/TestFairySDK-${VERSION}.zip"
+	unzip -q -o -d ./ios/AirTestFairy ./ios/sdk.zip libTestFairy.a TestFairy.h
+	-rm -f ./ios/sdk.zip
 
 build/ios/libAirTestFairy.a: ios/AirTestFairy/AirTestFairy/libTestFairy.a
 	xcodebuild -project ./ios/AirTestFairy/AirTestFairy.xcodeproj -configuration $(CONFIGURATION) -sdk iphoneos
