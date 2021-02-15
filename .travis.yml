@@ -23,6 +23,9 @@ before_script:
 
 script:
   - cd build
+  - echo "air.sdk.home = $AIR_SDK" >> build.config
+  - echo "android.sdk.home = $ANDROID_SDK" >> build.config
+  - echo "ios.sdk.build = $XCODE_BUILD" >> build.config
   - cat build.config
   - ant
 
