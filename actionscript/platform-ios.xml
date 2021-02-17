@@ -5,4 +5,7 @@
 		<option>-ObjC</option>
 		<option>-framework CoreMotion</option>
 	</linkerOptions>
+	<packagedDependencies>
+		<packagedDependency>ios/libTestFairy.a</packagedDependency>
+	</packagedDependencies>
 </platform>
