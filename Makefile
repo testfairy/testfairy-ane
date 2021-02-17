@@ -29,6 +29,7 @@ build/ios/libAirTestFairy.a: ios/AirTestFairy/AirTestFairy/libTestFairy.a
 		-output ios/build/$(CONFIGURATION)-universal/libAirTestFairy.a
 	mkdir -p build/ios
 	cp -f ios/build/$(CONFIGURATION)-universal/libAirTestFairy.a build/ios/libAirTestFairy.a
+	cp -f ./ios/AirTestFairy/AirTestFairy/libTestFairy.a build/ios/libTestFairy.a
 	file build/ios/libAirTestFairy.a
 
 build/android/libAirTestFairy.jar:
