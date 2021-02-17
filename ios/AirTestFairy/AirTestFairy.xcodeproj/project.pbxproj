@@ -264,6 +264,7 @@
 		DA6571781AC168EB00F9F369 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(VALID_ARCHS)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AirTestFairy",
@@ -271,12 +272,16 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD)";
+				"VALID_ARCHS[sdk=iphonesimulator*]" = "i386 x86_64";
 			};
 			name = Debug;
 		};
 		DA6571791AC168EB00F9F369 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(VALID_ARCHS)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AirTestFairy",
@@ -284,6 +289,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD)";
+				"VALID_ARCHS[sdk=iphonesimulator*]" = "i386 x86_64";
 			};
 			name = Release;
 		};
