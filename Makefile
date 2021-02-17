@@ -69,4 +69,4 @@ clean:
 	-rm -rf build
 	-rm ios/AirTestFairy/AirTestFairy/TestFairy.h
 	-rm ios/AirTestFairy/AirTestFairy/libTestFairy.a
-	-rm -rf airsdk
+	# -rm -rf airsdk

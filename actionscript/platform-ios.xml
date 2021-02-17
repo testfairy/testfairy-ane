@@ -1,7 +1,11 @@
-<platform xmlns="http://ns.adobe.com/air/extension/17.0">
-    <sdkVersion>7.0</sdkVersion>
+<platform xmlns="http://ns.adobe.com/air/extension/22.0">
+	<sdkVersion>10.0</sdkVersion>
 	<linkerOptions>
-		<option>-ios_version_min 7.0</option>
+		<option>-lclang_rt.ios</option>
+		<option>-ObjC</option>
 		<option>-framework CoreMotion</option>
 	</linkerOptions>
+	<packagedDependencies>
+    	<packagedDependency>ios/AirTestFairy/libTestFairy.a</packagedDependency>
+    </packagedDependencies>
 </platform>

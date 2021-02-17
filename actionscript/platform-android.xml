@@ -1,5 +1,5 @@
-<platform xmlns="http://ns.adobe.com/air/extension/17.0">
+<platform xmlns="http://ns.adobe.com/air/extension/22.0">
     <packagedDependencies>
         <packagedDependency>testfairy-sdk.jar</packagedDependency>
-    </packagedDependencies> 
+    </packagedDependencies>
 </platform>
