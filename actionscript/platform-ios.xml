@@ -6,6 +6,6 @@
 		<option>-framework CoreMotion</option>
 	</linkerOptions>
 	<packagedDependencies>
-		<packagedDependency>libTestFairy.a</packagedDependency>
+		<packagedDependency>ios/libTestFairy.a</packagedDependency>
 	</packagedDependencies>
 </platform>
