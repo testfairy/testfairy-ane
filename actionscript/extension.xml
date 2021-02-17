@@ -2,13 +2,6 @@
     <id>com.testfairy</id>
     <versionNumber>2.38.0</versionNumber>
     <platforms>
-        <platform name="iPhone-x86">
-            <applicationDeployment>
-                <nativeLibrary>libAirTestFairy.a</nativeLibrary>
-                <initializer>AirTestFairyInitializer</initializer>
-                <finalizer>AirTestFairyFinalizer</finalizer>
-            </applicationDeployment>
-        </platform>
         <platform name="iPhone-ARM">
             <applicationDeployment>
                 <nativeLibrary>libAirTestFairy.a</nativeLibrary>
