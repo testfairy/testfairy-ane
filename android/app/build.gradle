@@ -4,7 +4,7 @@ plugins {
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "30.0.0"
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "ca.vijaysharma.android.testfairyaneapp"
